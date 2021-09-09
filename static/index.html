@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        let a
+        if (navigator.userAgent.match(/Android/i) ||
+          navigator.userAgent.match(/webOS/i) ||
+          navigator.userAgent.match(/iPhone/i) ||
+          navigator.userAgent.match(/iPad/i) ||
+          navigator.userAgent.match(/iPod/i) ||
+          navigator.userAgent.match(/BlackBerry/i) ||
+          navigator.userAgent.match(/Windows Phone/i)) {
+          a = true;
+        } else {
+          a = false;
+        }
+        if(a==true){
+          // window.alert("Not optimised for mobile devices yet, but hey good things take time and patience is the key")
+          window.location.assign("mobileEntry.html")
+          // window.close()
+        }
+      </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.0/Chart.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/505cb8a6b1.js" crossorigin="anonymous"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-ui.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="./mapsjs-ui.css" />
+    <link rel="stylesheet" href="style-1.css" type="text/css"/>
+    <link rel="icon" href="./path2.ico" type="image/png"/>
+    <title>Cov-19-Stats</title>
+</head>
+<body>
+    <div class="navigation">
+        <div class="nav-dot">
+            <a class="list-item-1" href="#page1"></a>
+            <a class="list-item-2" href="#page2"></a>
+            <a class="list-item-3" href="#page3"></a>
+            <a class="list-item-4" href="#page4"></a>
+        </div>
+        <!--ul class="nav-dot">
+            <li><a href="" target="_blank"></a></li>
+            <li><a href="" target="_blank"></a></li>
+            <li><a href="" target="_blank"></a></li>
+            <li><a href="" target="_blank"></a></li>
+        </ul-->
+    </div>
+    <div class="page-1 s_section" id="page1">
+        <!-- <div class="dots-nav-container aos-init aos-animate" data-aos="fade-in" data-aos-delay="2000" data-aos-duration="1600"><ul class="vertical-dot-nav" style="top: 300px; left: auto; right: 0px; border-radius: 10px 0px 0px 10px;"><li class="dot active" data-target="section-0" style="width: 3px; height: 3px; border-color: rgb(255, 255, 255); border-radius: 50%; background-color: rgb(255, 255, 255);"></li><li class="dot" data-target="section-1" style="width: 3px; height: 3px; border-color: rgb(255, 255, 255); border-radius: 50%; background-color: transparent;"></li><li class="dot" data-target="section-2" style="width: 3px; height: 3px; border-color: rgb(255, 255, 255); border-radius: 50%; background-color: transparent;"></li><li class="dot" data-target="section-3" style="width: 3px; height: 3px; border-color: rgb(255, 255, 255); border-radius: 50%; background-color: transparent;"></li><li class="dot" data-target="section-4" style="width: 3px; height: 3px; border-color: rgb(255, 255, 255); border-radius: 50%; background-color: transparent;"></li><li class="dot" data-target="section-5" style="width: 3px; height: 3px; border-color: rgb(255, 255, 255); border-radius: 50%; background-color: transparent;"></li><li class="dot" data-target="section-6" style="width: 3px; height: 3px; border-color: rgb(255, 255, 255); border-radius: 50%; background-color: transparent;"></li></ul></div> -->
+        <div class="main-content-1 grid-1">
+            <div class="row-1">
+                <div class="map" id="mapContainer"></div>
+                <input type="text" class="search" id="search" autocomplete="off">
+                <div class="line-2"></div>
+                <div class="line-3"></div>
+                <div class="line-1"></div>   
+            </div>
+            
+            <div class="stats row-2">
+                <div class="heading-1" data-aos="fade-up" data-aos-duration="3000">
+                    Worldwide :
+                </div>
+                <div class="content-1" data-aos="fade-up" data-aos-duration="3500">
+                    <div class="sub-div-1">
+                        <div class="main-txt no-padding">
+                            <div class="infected-1 sub-heading-1"> Infected: &nbsp; </div>
+                            <div class="infectedno">10,23,26,570</div>
+                        </div>
+                        
+
+                    </div>
+                    <div class="sub-div-1">
+                         <div class="main-txt">
+                            <div class="recovered-1 sub-heading-1">Recovered: &nbsp; </div>
+                            <div class="recoveredno">2,67,789</div>
+                         </div>
+                         
+                    </div>
+                    <div class="sub-div-1 no-border">
+                        <div class="main-txt">
+                            <div class="deaths-1 sub-heading-1"> Deaths: &nbsp; </div>
+                            <div class="deathno">1,99,897</div>
+                        </div>
+                    </div>
+                    <div class="sub-div-2">
+                        <div class="sub-txt-1">+ 1,23,431</div>
+                    </div>
+                    <div class="sub-div-2">
+                        <div class="sub-txt-2">+ 1,23,431</div>
+                    </div>
+                    <div class="sub-div-2">
+                        <div class="sub-txt-3 todayDeaths">+ 1,23,431</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-2" id="page2">
+        <div class="grid-2">
+            <div class="title-2">
+                <div class="content-title-2">
+                    <div class="title-part-1">
+                        <div class="location-2">
+                            Location
+                        </div>
+                    </div>
+                    <div class="title-part-2">
+                        <div class="total-cases">
+                            Infected
+                        </div>
+                        <div class="active-cases">
+                            Active Cases
+                        </div>
+                        <div class="total-deaths">
+                            Deaths
+                        </div>
+                        <div class="total-recovered">
+                            Recovered
+                        </div>
+                    </div>             
+                </div>
+            </div>
+            <div class="main-content-2">
+            </div>
+            <!--div class="content-2 init">
+                <div class="content-part-1">
+                    <div class="location-2">
+                        <div class="flag"></div>
+                        <div class="country">India</div>
+                    </div>
+                </div>
+                <div class="content-part-2">
+                    <div class="total-cases">
+                        <div class="infected-2">8,20,380</div>
+                        <div class="additional-infected-2">+78,000</div>
+                    </div>
+                    <div class="active-cases">7,80,980</div>
+                    <div class="total-deaths">
+                        <div class="deaths-2">1,20,890</div>
+                        <div class="additional-deaths-2">+1,890</div>
+                    </div>
+                    <div class="total-recovered">
+                        <div class="recovered-2">1,40,567</div>
+                        <div class="additional-recovered-2">+47,000</div>
+                    </div>
+                </div>             
+            </div-->
+
+        </div>
+    </div>
+
+    <div class="page-3 s_section" id="page3">
+        <div class="no-graph">
+            <div class="no-graph-text">
+                No Data Available
+            </div>
+        </div>
+        <div class="main-content-3 grid-3">
+        
+        <div class="column-1">
+            <div class="row-1">
+                <div class="text-content-3">
+                    <div class="dropdown-location">
+                        <label class="btn search-label draw-border"><input type="text" class="search-3" id="search-3" placeholder="Search"><i class="fas fa-search"></i></label>
+                    </div>
+                    <!--div class="stats-selection">
+                        <div class="stats-elem-1">
+                            <input type="radio" id="infected-3">
+                            <label for="infected-3">Infected</label>
+                            
+                        </div>
+                        <div class="stats-elem-2">
+                            <input type="radio" id="recovered-3">
+                            <label for="recovered-3">Recovered<label>
+                            
+                        </div>
+                        <div class="stats-elem-3">
+                            <input type="radio" id="deaths-3">
+                            <label for="deaths-3">Deaths</label>   
+                        </div>
+                    </div-->
+                    <div class="stats-selection">
+                        <input type="radio" name="field" id="Uno" checked/>
+                        <label for="Uno">
+                          <svg class="check" viewbox="0 0 40 40">
+                            <defs>
+                              <linearGradient id="gradient" x1="0" y1="0" x2="0" y2="100%">
+                                <stop offset="0%" stop-color="rgba(15,164,254,1)"></stop>
+                                <stop offset="100%" stop-color="#da1b60"></stop>
+                              </linearGradient>
+                            </defs>
+                            <circle id="border" r="18px" cx="20px" cy="20px"></circle>
+                            <circle id="dot" r="8px" cx="20px" cy="20px"></circle>
+                          </svg>Infected
+                        </label>
+                        <input type="radio" name="field" id="Dos"/>
+                        <label for="Dos">
+                          <svg class="check" viewbox="0 0 40 40">
+                            <defs>
+                              <linearGradient id="gradient" x1="0" y1="0" x2="0" y2="100%">
+                                <stop offset="0%" stop-color="#ff8a00"></stop>
+                                <stop offset="100%" stop-color="#da1b60"></stop>
+                              </linearGradient>
+                            </defs>
+                            <circle id="border" r="18px" cx="20px" cy="20px"></circle>
+                            <circle id="dot" r="8px" cx="20px" cy="20px"></circle>
+                          </svg>Recovered
+                        </label>
+                        <input type="radio" name="field" id="Tres"/>
+                        <label for="Tres">
+                          <svg class="check" viewbox="0 0 40 40">
+                            <defs>
+                              <linearGradient id="gradient" x1="0" y1="0" x2="0" y2="100%">
+                                <stop offset="0%" stop-color="#ff8a00"></stop>
+                                <stop offset="100%" stop-color="#da1b60"></stop>
+                              </linearGradient>
+                            </defs>
+                            <circle id="border" r="18px" cx="20px" cy="20px"></circle>
+                            <circle id="dot" r="8px" cx="20px" cy="20px"></circle>
+                          </svg>Deaths
+                        </label>
+                    </div>
+
+                </div>
+            <div class="chart-container infected-graph">   <!--Cannot add more than one graph inside one chart container-->         
+                        <canvas id="infected"></canvas> 
+             </div>
+             <div class="chart-container deaths-graph" style="display: none;"> <!--Hence add chart-container classs to each graph -->
+                <canvas id="deceased" ></canvas>
+            </div>
+            <div class="chart-container recovered-graph" style="display: none;">
+                <canvas id="cured" ></canvas>
+            </div>
+                </div>
+            <div class="stats-3 row-3-2"><div class="heading-3" data-aos="fade-up" data-aos-duration="3000">
+                Worldwide :
+            </div>
+            <div class="content-1" data-aos="fade-up" data-aos-duration="3500">
+                <div class="sub-div-1">
+                    <div class="main-txt no-padding">
+                        <div class="infected-1 sub-heading-1"> Infected: &nbsp; </div>
+                        <div class="infectedno-3-3">10,23,26,570</div>
+                    </div>
+                    
+
+                </div>
+                <div class="sub-div-1">
+                     <div class="main-txt">
+                        <div class="recovered-1 sub-heading-1">Recovered: &nbsp; </div>
+                        <div class="recoveredno-3-3">2,67,789</div>
+                     </div>
+                     
+                </div>
+                <div class="sub-div-1 no-border">
+                    <div class="main-txt">
+                        <div class="deaths-1 sub-heading-1"> Deaths: &nbsp; </div>
+                        <div class="deathno-3-3">1,99,897</div>
+                    </div>
+                </div>
+                <div class="sub-div-2">
+                    <div class="sub-txt-3-1">+ 1,23,431</div>
+                </div>
+                <div class="sub-div-2">
+                    <div class="sub-txt-3-2">+ 1,23,431</div>
+                </div>
+                <div class="sub-div-2">
+                    <div class="sub-txt-3-3 todayDeaths">+ 1,23,431</div>
+                </div>
+            </div>
+
+            </div>
+        </div>
+        <div class="column-2">
+            <div class="overlay state-data">
+                <div class="title-3">
+                    <div class="title-text-3">
+                        No Country Selected
+                    </div>
+                </div>
+                <div class="state-content">
+                    <div class="state-3">
+                        <div class="unavailable-3">No State Data Available</div>
+                    </div>
+                </div>
+                
+                
+            </div>
+        </div>
+            
+        </div>
+
+        <!--div style="width:50%"><canvas id="infected" ></canvas></div-->
+        
+    <!-- wrna error aa rha hai if i dont initialize the canvas here, bs visualization hai -->
+    
+        <script>
+            AOS.init();
+        </script>
+
+    </div>
+      
+    <div class="page-4" id="page4">
+        <div class="no-graph">
+            <div class="no-graph-text">
+                No Data Available
+            </div>
+        </div>
+        <div class="grid-4">
+            <div class="main-content-4">
+                <div class="heading-4">
+                    Prediction Of Infection Rate Curve Based On Previously Collected Data
+                </div>
+                
+                <div class="content-4">
+                    <div class="column-4-1">
+                        <div class="dropdown-location">
+                            <label class="btn search-label draw-border"><input type="text" class="search-4" id="search-4" placeholder="Search"><i class="fas fa-search"></i></label>
+                        </div>
+                        <div class="chart-container prediction-graph">   <!--Cannot add more than one graph inside one chart container-->         
+                            <canvas id="prediction" height="400"></canvas> 
+                        </div>
+                        <div class="legend">
+                            <div class="legend-1">
+                                <div class="small-rectangle"></div>
+                                <div class="legend-text">Infection rates based on R0 calculated from past 7 days</div>
+                            </div>
+                            <div class="legend-2">
+                                <div class="small-rectangle"></div>
+                                <div class="legend-text">Infection rates based on R0 calculated from past 3 days</div>
+                            </div>
+                            <div class="legend-3">
+                                <div class="small-rectangle"></div>
+                                <div class="legend-text">Infection rates if R0 was below 1</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column-4-2">
+                        <div class="card-1">
+                            <div class="card-content">
+                                <div class="card-heading">
+                                    How Contagious Is The Corona Virus? 
+                                </div>
+                                <div class="c-content-main">
+                                    A key factor to measure this is the <strong>R0</strong>, or <strong>basic reproduction number</strong>, which indicates how many new cases one infected person generates.
+                                </div>
+                                <div class="hidden">
+                                    <p class="hidden-para">For an R0 of 3 we would expect each new case of a disease to produce three other infections.</p>
+                                    <p class="hidden-para">This is not just a measure of the inherent infectiousness of a disease. It also depends on other factors,including the rate of contact within a population and the duration of the infectious period. </p>
+                                    <p class="hidden-para"> It also assumes that the entire population is susceptible to the disease.</p>
+                                </div>
+                            </div>
+                            <button class="btnCard btn-card-1">
+                                <span>Read <span class="more-less">More</span></span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                        </div>
+                        <div class="card-4">
+                            <div class="card-content">
+                                <div class="card-heading">How Is The R Number Estimated?</div>
+                                <div class="c-content-main">
+                                    You can't capture the moment people are infected. Instead, scientists work backwards.
+                                    Data - such as the number of people dying, admitted to hospital or testing positive for the virus over time - is used to estimate how easily the virus is spreading.
+                                </div>
+                                <div class="hidden">
+                                    <p class="hidden-para">In January this year the World Health Organization (WHO) estimated the R number of the COVID-19 virus to be between 1.4 and 2.5, whereas researchers in China, Germany and Sweden estimated it to be at least as transmissible as SARS, and calculated it to be 3.28. In China, other researchers have found the R number to be much higher, putting it at 4.7 – 6.6.</p>
+                                    <p class="hidden-para"> </p>
+                                    <p class="hidden-para"></p>
+                                </div>
+                            </div>
+                            <button class="btnCard btn-card-2">
+                                <span>Read <span class="more-less">More</span></span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                        </div>
+                        <div class="card-2">
+                            <div class="card-content">
+                                <div class="card-heading">Why Is A R number Above 1 Dangerous?</div>
+                                <div class="c-content-main">
+                                    If the reproduction number is higher than one, then the number of cases increases exponentially -it snowballs like debt on an unpaid credit card
+                                </div>
+                                <div class="hidden">
+                                    <p class="hidden-para">So, if initially at Day 1 we have 1000 infected people and R number is 1.5, by the end of Day 2 the number of infected people will be 1,500 and 2,250 on Day 3 and so on.By the end of 10 days we will thus have around 38,443 cases. This explains how potentially dangerous a R number above 1 is. </p>
+                                    <p class="hidden-para"> </p>
+                                    <p class="hidden-para">On the other hand if the R number is lower than 1 then the disease will eventually stop spreading, as not enough new people are being infected to sustain the outbreak.</p>
+                                </div>
+                            </div>
+                            <button class="btnCard btn-card-2">
+                                <span>Read <span class="more-less">More</span></span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                        </div>
+                        <div class="card-3">
+                            <div class="card-content">
+                                <div class="card-heading">How Do We Keep The R Number Low?</div>
+                                <div class="c-content-main">
+                                    The aim of most governments has been to reduce the R number of COVID-19 to 1 or below, as that will ensure it stops spreading eventually. Anything above 1, and the virus will spread exponentially.
+                                </div>
+                                <div class="hidden">
+                                    <p class="hidden-para">Ensuring the virus stops spreading is a delicate balancing act that can shift when measures to control it are eased.</p>
+                                    <p class="hidden-para">In Germany the R number rose to 1.1 just a few days after it relaxed its lockdown measures. So, bringing the pandemic under control means monitoring the R number, as well as keeping the number of cases below hospital capacity, and balancing social and economic considerations. </p>
+                                    <p class="hidden-para"></p>
+                                </div>
+                            </div>
+                            <button class="btnCard btn-card-2">
+                                <span>Read <span class="more-less">More</span></span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+            <div class="footer">
+                <div class="footer-content">
+                    <div class="contact-details">
+                        <div class="contact-1">
+                            <div class="contact-heading">
+                                About Us:
+                            </div>
+                            <div class="contact-content">
+                                <p class="about">
+                                    Bella Ciao <i class="fas fa-heart"></i> 
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                </p> 
+                            </div>
+                        </div>
+                        <div class="contact-2">
+                            
+                            <div class="contact-heading">
+                                <div class="contact-sub-heading">
+                                    Got any queries? 
+                                </div>
+                                Contact:
+                            </div>
+                            <div class="contact-content">
+                                <div class="contact-name"><strong>Sagnik- &nbsp; </strong><div class="phno">+91 88926 10550</div><div class="email">sagnikdas.1027@gmail.com</div></div>
+                                <div class="contact-name"><strong>Rishita- &nbsp; </strong><div class="phno">+91 94499 74310</div><div class="email">rishitaraha2605@gmail.com</div></div>
+                            </div>
+                        </div>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <div class="contact-3">
+                            <div class="contact-heading">Social Media:</div>
+                            <div class="contact-content">
+                                <div class="social">
+                                    <div class="social-name"><strong>Rishita-</strong></div>
+                                    <div class="icons">
+                                        <a href="https://www.linkedin.com/in/rishita-raha-12630/" target="_blank"><button class="icons-btn"><i class="fab fa-linkedin-in icon"></i></button></a>
+                                        <a href="https://www.facebook.com/profile.php?id=100008561684367" target="_blank"><button class="icons-btn"><i class="fab fa-facebook-f icon"></i></button></a>
+                                        <a href="https://github.com/rishita2605" target="_blank"><button class="icons-btn"><i class="fab fa-github-alt icon"></i></button></a>
+                                    </div>
+                                </div>
+                                <div class="social">
+                                    <div class="social-name"><strong>Sagnik-</strong></div>
+                                    <div class="icons">
+                                        <a href="https://www.linkedin.com/in/sagnik-das-6aa2211b5/" target="_blank"><button class="icons-btn"><i class="fab fa-linkedin-in icon"></i></button></a>
+                                        <a href="https://www.facebook.com/sagnik.das.961" target="_blank"><button class="icons-btn"><i class="fab fa-facebook-f icon"></i></button></a>
+                                        <a href="https://github.com/Wicked-North" target="_blank"><button class="icons-btn"><i class="fab fa-github-alt icon"></i></button></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="copyright">
+                        <i class="far fa-copyright"></i>2020 All Rights Reserved.
+                    </div> 
+                </div>
+            </div>
+        </div>
+        
+    </div>
+<!--I don't know what this is for-->
+<!--script>
+    function handleResize() {
+    var h = $(window).height();
+    var w = $(window).width();
+            $('.landing-section').css({'height':h+'px'});
+    }
+    $(function(){
+            handleResize();
+    
+            $(window).resize(function(){
+            handleResize();
+        });
+    });
+
+</script-->
+
+<script src="base.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
+
+
