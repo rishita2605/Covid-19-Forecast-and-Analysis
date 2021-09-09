@@ -27,7 +27,7 @@ https://cov-19-stats.herokuapp.com/
 
 **Statewise Data**
 
-![image 6](https://user-images.githubusercontent.com/64982040/132677674-4fbabcd3-fe68-4f49-9a38-9df6f7c5228f.jpg)
+<img src="https://user-images.githubusercontent.com/64982040/132677674-4fbabcd3-fe68-4f49-9a38-9df6f7c5228f.jpg" height=420 width=300/>
 
 **Forecast (Based on R Number)**
 
